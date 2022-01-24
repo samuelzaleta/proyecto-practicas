@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'proyecto-practicas
+
+  Sample SAM Template for first-proyect
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  ListFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ListFunction
+      Handler: controlador.usuarios.listar
+      Runtime: python3.8
+      Architectures:
+      - x86_64
+      Events:
+        ListEvent:
+          Type: Api
+          Properties:
+            Path: /usuarios
+            Method: get
+    Metadata:
+      SamResourceId: ListFunction
+Outputs: null
